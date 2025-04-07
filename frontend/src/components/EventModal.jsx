@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
-import { createEvent, updateEvent } from '../utils/api.js';
-import { addEvent, updateEventAsync } from '../redux/calendarSlice.js';
+import {
+  addEvent,
+  createEventAsync,
+  updateEventAsync,
+} from '../redux/calendarSlice.js';
 
 const categories = ['exercise', 'eating', 'work', 'relax', 'family', 'social'];
 
@@ -32,13 +34,8 @@ const EventModal = ({ isOpen, onClose, initialData }) => {
         ).unwrap();
         console.log('Event updated: ', updatedEvent);
       } else {
-        const response = await createEvent(newEvent);
-        if (response.data.success) {
-          dispatch(addEvent(response.data.newEvent));
-          console.log('Event Created: ', response.data);
-        } else {
-          console.error('Backend error ', response.data.message);
-        }
+        const response = await dispatch(createEventAsync(newEvent)).unwrap();
+        dispatch(addEvent(response));
       }
     } catch (error) {
       console.error('Failed to save event:', error);
