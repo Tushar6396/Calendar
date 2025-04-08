@@ -134,7 +134,7 @@ const Calendar = () => {
       </h2>
       <div className=' rounded-lg w-full border-l border-gray-200'>
         <div className='grid grid-cols-8 bg-gray-100'>
-          <div className='p-2 text-sm font-bold border-r border-l border-gray-300'>
+          <div className='p-2 text-md font-bold border-r border-l border-gray-300 text-center align-bottom'>
             Time
           </div>
           {weekStartDate &&
