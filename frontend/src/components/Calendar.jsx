@@ -140,7 +140,7 @@ const Calendar = () => {
           {weekStartDate &&
             days.map((day, index) => {
               const date = new Date(weekStartDate);
-              date.setDate(weekStartDate.getDate() + index);
+              date.setDate(weekStartDate.getDate() - 1 + index);
               const formattedDate = date.toLocaleDateString('en-US', {
                 day: 'numeric',
                 month: 'short',
