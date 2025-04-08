@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://calendar-5ez9.onrender.com/api',
 });
 
 export const createEvent = (eventData) => API.post('/createEvent', eventData);
